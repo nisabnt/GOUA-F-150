@@ -1,16 +1,14 @@
 GOUA-F-150
-Takım İsmi
+# Takım İsmi
 Takım Flutter 150
 
----
-
-Ürün İle İlgili Bilgiler
-Takım Elemanları
-Nisa Bellenur Topçu: Scrum Master / Developer
-Tufan Akbaş : Product Owner
-Barış Dinçer : Developer
-Göktuğ Yağız Yılmaz: Developer
-Mertcan Eligüzel: Developer
+# Ürün İle İlgili Bilgiler
+Takım Elemanları<br>
+- Nisa Bellenur Topçu: Scrum Master / Developer<br>
+- Tufan Akbaş : Product Owner<br>
+- Barış Dinçer : Developer<br>
+- Göktuğ Yağız Yılmaz: Developer<br>
+- Mertcan Eligüzel: Developer
 
 Ürün İsmi
 -- --
