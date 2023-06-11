@@ -10,14 +10,14 @@ Takım Elemanları<br>
 - Göktuğ Yağız Yılmaz: Developer<br>
 - Mertcan Eligüzel: Developer
 
-Ürün İsmi
--- --
+## Ürün İsmi
+--**Ürün İsmi Buraya Yazılacak**--
 
 Product Backlog URL
-[Trello URL](https://https://trello.com/b/fnEpHei2/project-management)
+[Trello URL'si buraya yazılacak](https://https:/www./trello.com/b/fnEpHei2/project-management)
 
 ## Ürün Açıklaması
 
 
-##Ürün Özellikleri
+## Ürün Özellikleri
 
