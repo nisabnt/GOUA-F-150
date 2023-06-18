@@ -66,13 +66,15 @@ BookBD uygulaması, günümüzde film listelerinde gezinebileceğimiz, izlediği
   ![Settings](https://github.com/nisabnt/Bootcamp2022Example/blob/main/ProjectManagement/Sprint1DocumentsF-150/ayarlar.png)<br>
   ![Homepage](https://github.com/nisabnt/Bootcamp2022Example/blob/main/ProjectManagement/Sprint1DocumentsF-150/homepage.png)<br>
 - **Sprint Review**: 
-Alınan kararlar: Kullanıcı temel sayfaları oluşturulmuş, bazıları kodlanmış, arduino kurulumu ve firebase'e bağlanması sağlanmış, uygulama için veritabanı olarak firebase servisleri aktif edilmiş ve eksiklikler değerlendirilmiştir. Sprint Review katılımcıları: Mustafa Aksoy
+Alınan kararlar: Giriş ve anasayfa ekranı başta olmak üzere kullanıcı sayfaları tasarlandı ve bir kısmı kodlandı,eksikler gözden geçirildi. Sprint Review katılımcıları: Tufan AKBAŞ, Barış DİNÇER.
 
 - **Sprint Retrospective:**
-  - Roller ile ilgili düzenleme yapılmış, scrum master değişmiştir.
-  - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır.
+  - Hedefleri belirlerken daha açık ve net bir şekilde en baştan yapılmasına karar verilmiştir.
+  - Uygulama içinde bu süreçten sonra kesinlikle olması gereken başlıklar konusunda konuşulmuştur.
   - Takım üyelerinin gelecek sprintlerde aktif olması gerektiğine vurgu yapılmıştır.
- 
+  - Görev dağılımında daha dikkatli olmamız gerektiğine vurgu yapılmıştır.
+  - Toplantıların daha planlı yapılması gerektiği kararlaştırılmıştır.
+   
 
 
 ---
