@@ -40,13 +40,6 @@ BookBD uygulaması, günümüzde film listelerinde gezinebileceğimiz, izlediği
 - Lise/Üniversite+ öğrenimindeki kişiler 
 - Eğitmenler
 
-
-
-
-## Juriye Not
-
-
-
 ---
 
 # Sprint 1
@@ -54,7 +47,8 @@ BookBD uygulaması, günümüzde film listelerinde gezinebileceğimiz, izlediği
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 
 
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 400 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprinti 100 ile başlatma kararı verildi. 
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 400 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprinti 100 ile başlatma kararı verildi.
+- **Sprint Notları**: User storyler product backlog'ların içerisine yazılmıştır(mor renkle belirtilmiştir).Karta tıklandığında hikayelerin detayları görülebilir.
 
 
 - **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 1 Daily Scrum Chats](https://www.canva.com/design/DAFmFZqQf6U/tLXZO-BD4FpqtE2FbBCPRA/edit?utm_content=DAFmFZqQf6U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
