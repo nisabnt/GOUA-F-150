@@ -90,7 +90,7 @@ Alınan kararlar: Giriş ve anasayfa ekranı başta olmak üzere kullanıcı say
 - **Sprint Notları**: User storyler product backlog'ların içerisine yazılmıştır(turuncu renkle belirtilmiştir).Karta tıklandığında hikayelerin detayları görülebilir.
 
 
-- **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 2 Daily Scrum Chats](https://www.canva.com/design/DAFmFZqQf6U/tLXZO-BD4FpqtE2FbBCPRA/edit?utm_content=DAFmFZqQf6U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 2 Daily Scrum Chats](https://www.canva.com/design/DAFmj0K7MCM/gNhlMyeKjKJWIfNABTYKMw/edit?utm_content=DAFmj0K7MCM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Backlog 1](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/sprint1.png)<br>
