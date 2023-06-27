@@ -76,9 +76,47 @@ Alınan kararlar: Giriş ve anasayfa ekranı başta olmak üzere kullanıcı say
 ---
 
 ## Product Backlog URL
-
 [Flutter Team 150 Trello Backlog Board](https://trello.com/b/mmCYvCBP/sprint-1)
 
 ---
+
+
+# Sprint 2
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 200 Puan
+
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 400 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ikinci sprinte 200 puan verilmesi kararlaştırıldı.
+- **Sprint Notları**: User storyler product backlog'ların içerisine yazılmıştır(turuncu renkle belirtilmiştir).Karta tıklandığında hikayelerin detayları görülebilir.
+
+
+- **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 2 Daily Scrum Chats](https://www.canva.com/design/DAFmFZqQf6U/tLXZO-BD4FpqtE2FbBCPRA/edit?utm_content=DAFmFZqQf6U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+- **Sprint board update**: Sprint board screenshotları: 
+![Backlog 1](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/sprint1.png)<br>
+
+- **Ürün Durumu**:<br>
+  ![Login Page](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/LoginPage.png)<br>
+  ![Homepage](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/homepage.png)<br>
+  ![Settings](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/Ayarlar.png)<br>
+  
+- **Sprint Review**: 
+Alınan kararlar: Sprint Review Katılımcıları:
+
+- **Sprint Retrospective:**
+  - Hedefleri belirlerken daha açık ve net bir şekilde en baştan yapılmasına karar verilmiştir.
+  - 
+ 
+  
+
+  
+---
+
+## Product Backlog URL
+[Flutter Team 150 Trello Backlog Board](https://trello.com/b/WCU7VTve)
+
+---
+
+
 
 
