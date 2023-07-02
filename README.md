@@ -93,13 +93,19 @@ Alınan kararlar: Giriş ve anasayfa ekranı başta olmak üzere kullanıcı say
 - **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 2 Daily Scrum Chats](https://www.canva.com/design/DAFmj0K7MCM/gNhlMyeKjKJWIfNABTYKMw/edit?utm_content=DAFmj0K7MCM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 - **Sprint board update**: Sprint board screenshotları: 
-![Backlog 1](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/sprint1.png)<br>
+![Backlog 2](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/4.png)<br>
 
 - **Ürün Durumu**:<br>
-  ![Login Page](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/LoginPage.png)<br>
-  ![Homepage](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/homepage.png)<br>
-  ![Settings](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/Ayarlar.png)<br>
-  
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/7.png)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/6.png)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/2.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/3.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/5.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/1.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/8.png)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/9.png)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/10.png)<br>
+
 - **Sprint Review**: 
 Alınan kararlar: Tasarlanan kullanıcı sayfaları geliştirildi, firebasle veri tabanı oluşturuldu ve bağlantı yapıldı, verilerin dinamik olarak yansıtılmasını sağladık, kitap kategorileri ve detay sayfaları oluşturuldu, kullanıcılar için etkileşimli bir alan haline getirildi. Kullanıcı giriş ekranı geliştirildi. Sprint Review Katılımcıları: Barış DİNÇER, Mertcan ELİGÜZEL, Tufan AKBAŞ, Nisa Berrenur TOPCU.
 
