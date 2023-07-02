@@ -87,7 +87,7 @@ Alınan kararlar: Giriş ve anasayfa ekranı başta olmak üzere kullanıcı say
 
 
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 400 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ikinci sprinte 200 puan verilmesi kararlaştırıldı.
-- **Sprint Notları**: User storyler product backlog'ların içerisine yazılmıştır(turuncu renkle belirtilmiştir).Karta tıklandığında hikayelerin detayları görülebilir.
+- **Sprint Notları**: User storyler product backlog'ların içerisine yazılmıştır (turuncu renkle belirtilmiştir).Karta tıklandığında hikayelerin detayları görülebilir.
 
 
 - **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 2 Daily Scrum Chats](https://www.canva.com/design/DAFmj0K7MCM/gNhlMyeKjKJWIfNABTYKMw/edit?utm_content=DAFmj0K7MCM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
@@ -101,14 +101,12 @@ Alınan kararlar: Giriş ve anasayfa ekranı başta olmak üzere kullanıcı say
   ![Settings](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint1DocumentsF-150/Ayarlar.png)<br>
   
 - **Sprint Review**: 
-Alınan kararlar: Sprint Review Katılımcıları:
+Alınan kararlar: Tasarlanan kullanıcı sayfaları geliştirildi, firebasle veri tabanı oluşturuldu ve bağlantı yapıldı, verilerin dinamik olarak yansıtılmasını sağladık, kitap kategorileri ve detay sayfaları oluşturuldu, kullanıcılar için etkileşimli bir alan haline getirildi. Kullanıcı giriş ekranı geliştirildi. Sprint Review Katılımcıları: Barış DİNÇER, Mertcan ELİGÜZEL, Tufan AKBAŞ, Nisa Berrenur TOPCU.
 
 - **Sprint Retrospective:**
-  - Hedefleri belirlerken daha açık ve net bir şekilde en baştan yapılmasına karar verilmiştir.
-  - 
- 
-  
-
+  - Bazen aramızda oluşan iletişim eksikliğini gidermek üzerine karar alındı.
+  - Önceki sprint retrospective toplantısında alınan kararlar uygulandığı için çok fazla problem yaşanmamıştır.
+  - Düzenli toplantılara devam etme konusunda anlaşıldı.
   
 ---
 
