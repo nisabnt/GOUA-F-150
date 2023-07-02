@@ -5,7 +5,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:bookdb/auth.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -14,7 +14,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   String? errorMessage = '';
-  bool isLogin = true;
+  bool rememberMe = false;
+  bool _obscureText = true;
+  bool _isLogin = true;
 
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
@@ -31,25 +33,31 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> createUserWithEmailAndPassword() async {
-    try{
-      await Auth().createUserWithEmailAndPassword(email: _controllerEmail.text, password: _controllerPassword.text);
-    } on FirebaseAuthException catch (e){
+    try {
+      await Auth().createUserWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(
+            content: Text(
+              "Hatalı bir giriş yaptınız, lütfen daha önce kullanılmamış bir mail veya şifrenizi minimum 6 karakterden uzun giriniz.",
+            ),
+          );
+        },
+      );
       setState(() {
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              content: Text("Hatalı bir giriş yaptınız, lütfen daha önce kullanılmamış bir mail veya şifrenizi minimum 6 karakterden uzun giriniz."),
-            );
-          },
-        );
         errorMessage = e.message;
       });
     }
   }
 
-  bool _isPasswordVisible = false;
-  bool _isLogin = true;
+  void _togglePasswordVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,134 +66,158 @@ class _LoginScreenState extends State<LoginScreen> {
         title: const Text('BookDB'),
         backgroundColor: Colors.red,
       ),
-      body: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, snapshot) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                //Icon
-                children: [
-                  const SizedBox(height: 20),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    child: const Icon(
-                      Icons.lock,
-                      size: 100,
-                      color: Colors.grey,
-                    ),
-                  ), //Kullanıcı adı - E mail
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: TextField(
-                      controller: _controllerEmail,
-                      decoration: InputDecoration(
-                        labelText: 'E-Mail',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                  ), //Kullanıcı adı - E mail
-                  const SizedBox(height: 16),
-
-                  //Parola Container
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: TextField(
-                      controller: _controllerPassword,
-                      obscureText: !_isPasswordVisible,
-                      decoration: InputDecoration(
-                        labelText: 'Parola',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(_isPasswordVisible
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          onPressed: () {
-                            setState(() {
-                              _isPasswordVisible = !_isPasswordVisible;
-                            });
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  // Giriş yapma işlemleri
-                  const SizedBox(height: 24),
-                  ElevatedButton(
-                    onPressed: () {
-                      _isLogin ? signInWithEmailAndPassword() : createUserWithEmailAndPassword();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      padding: const EdgeInsets.all(16),
-                    ),
-                    child:  Text(
-                      _isLogin ? 'Giriş Yap' : 'Kayıt Ol',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-
-                  // Şifremi Unuttum Butonu
-                  const SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage(),));
-                        },
-                        child: const Text(
-                          'Şifremi Unuttum',
-                          style: TextStyle(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                         setState(() {
-                           _isLogin = _isLogin ? false : true;
-                         });
-                        },
-                        child: Text(
-                          _isLogin ? 'Kayıt Ol' : 'Giriş Yap',
-                          style: TextStyle(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  //Google ile giriş yap butonu
-                  const SizedBox(height: 12),
-                  SignInButton(
-                    Buttons.Google,
-                    text: "Google İle Gİriş",
-                    elevation: 4,
-                    onPressed: () {
-                      try{
-                        Auth().signInWithGoogle();
-                      }catch(e){}
-                     
-                    },
-                  ),
-                ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 20),
+            Container(
+              margin: const EdgeInsets.only(bottom: 16),
+              child: const Icon(
+                Icons.lock,
+                size: 100,
+                color: Colors.grey,
               ),
-            );
-          }),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: TextField(
+                controller: _controllerEmail,
+                decoration: InputDecoration(
+                  labelText: 'E-Mail',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: TextField(
+                controller: _controllerPassword,
+                obscureText: _obscureText,
+                decoration: InputDecoration(
+                  labelText: 'Parola',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: Icon(_obscureText
+                        ? Icons.visibility_off
+                        : Icons.visibility),
+                    onPressed: _togglePasswordVisibility,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Checkbox(
+                      value: rememberMe,
+                      onChanged: (value) {
+                        setState(() {
+                          rememberMe = value!;
+                        });
+                      },
+                    ),
+                    const Text('Beni Hatırla'),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordPage(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Şifremi Unuttum',
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () {
+                _isLogin
+                    ? signInWithEmailAndPassword()
+                    : createUserWithEmailAndPassword();
+              },
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                padding: const EdgeInsets.all(16),
+              ),
+              child: Text(
+                _isLogin ? 'Giriş Yap' : 'Kayıt Ol',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            const Text(
+              '- veya -',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.55,
+              height: 50,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blue),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  setState(() {
+                    _isLogin = !_isLogin;
+                  });
+                },
+                child: Text(
+                  _isLogin ? 'Kayıt Ol' : 'Giriş Yap',
+                  style: const TextStyle(
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 50),
+            SignInButton(
+              Buttons.Google,
+              text: "Google İle Giriş Yap",
+              elevation: 15,
+              onPressed: () {
+                try {
+                  Auth().signInWithGoogle();
+                  // ignore: empty_catches
+                } catch (e) {}
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
