@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: const EdgeInsets.only(bottom: 16),
               child: const Icon(
                 Icons.lock,
-                size: 100,
+                size: 99,
                 color: Colors.grey,
               ),
             ),
