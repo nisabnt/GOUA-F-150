@@ -69,6 +69,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+
+          //Icon:
           children: [
             const SizedBox(height: 20),
             Container(
@@ -79,6 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.grey,
               ),
             ),
+
+            //Kullanıcı Adı - E mail
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: TextField(
@@ -91,6 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
+
+            // Parola Container
             const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
