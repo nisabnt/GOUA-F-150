@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatefulWidget {
+class settingsPage extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _settingsPageState createState() => _settingsPageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _settingsPageState extends State<settingsPage> {
   bool _darkModeEnabled = false; // Koyu tema durumunu tutan değişken
   bool _notificationEnabled = false; // Bildirim durumunu tutan değişken
 
@@ -34,7 +30,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ayarlar',
-      theme: _darkModeEnabled ? ThemeData.dark() : ThemeData.light(), // Tema ayarlarını koyu veya açık temaya göre belirle
+      theme: _darkModeEnabled
+          ? ThemeData.dark()
+          : ThemeData
+              .light(), // Tema ayarlarını koyu veya açık temaya göre belirle
       home: SettingsPage(
         darkModeEnabled: _darkModeEnabled,
         notificationEnabled: _notificationEnabled,
@@ -70,7 +69,8 @@ class SettingsPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor, // Başlık çubuğu rengini temaya göre ayarla
+        backgroundColor: Theme.of(context)
+            .primaryColor, // Başlık çubuğu rengini temaya göre ayarla
         elevation: 0,
       ),
       body: Padding(
@@ -89,7 +89,8 @@ class SettingsPage extends StatelessWidget {
             SwitchListTile(
               title: Text('Bildirimleri Aç'),
               value: notificationEnabled,
-              onChanged: toggleNotifications, // Bildirim ayarlarını değiştirmek için gerekli fonksiyonu çağır
+              onChanged:
+                  toggleNotifications, // Bildirim ayarlarını değiştirmek için gerekli fonksiyonu çağır
             ),
             Divider(),
             Text(
@@ -103,7 +104,8 @@ class SettingsPage extends StatelessWidget {
             SwitchListTile(
               title: Text('Koyu Tema'),
               value: darkModeEnabled,
-              onChanged: toggleDarkMode, // Koyu tema ayarlarını değiştirmek için gerekli fonksiyonu çağır
+              onChanged:
+                  toggleDarkMode, // Koyu tema ayarlarını değiştirmek için gerekli fonksiyonu çağır
             ),
             Divider(),
             SizedBox(height: 16),
@@ -217,7 +219,7 @@ class AboutPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Text(
-            'BookBD uygulaması, günümüzde film listelerinde gezinebileceğimiz, izlediğimiz filmleri kaydedebileceğimiz, bunları puanlayabileceğimiz ve birçok özelliğe sahip uygulamaların varlığı fakat bunun kitaplar için olmaması ihtiyacı üzerine tasarlanmıştır. Kitapsever her yaştan insanımızın varlığının farkında olup daha çok gençlerin asıl kullanıcı kesimimiz olarak hedefe alınma sebebi, birçoğumuzun okuduğu, okuyacağı şeyleri(birçok tür içerir) liste haline getirme ve bununla ilgili genel kanıyı merak etme(puanlama sonucunu) durumumuzla ilgilidir. Burada kullanıcılarımız aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı \'okuduklarım,\'okuyacaklarım\' listelerine kaydedebilme, beğenme durumlarına göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir. Uygulamamızın amacı sektördeki film versiyonun kitap için olan halini karşılamak,o an aklımıza gelen kitabı listeye eklemek,okuyucuların kitap hakkındaki beğeni oranını görebilmek gibi faaliyetleri içererek keyifli bir kullanım sunmaktır. Bu uygulamayla aynı zamanda insanların kitap okumaya teşvik edileceği, özendirileceği düşünülmektedir.',
+            'Bookdb uygulaması, günümüzde kitapları inceleyip, okuduklarımızı listemize kaydedip bunlara puan verebileceğimiz ve farklı özelliklere de sahip bir uygulama olarak tasarlanmıştır.Geliştirilme sebebi, kitapseverlere hitap etmek üzere bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. Kullanıcı kesimimiz kitap okumayı seven her insanı kapsamaktadır. Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelen bir şekilde oluşturulmuştur. Kullanıcılarımız uygulama içerisinde aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir.Uygulamanın benzer versiyonlarının farklı amaçlar için kullanıldığı göz önüne alınarak, özellikle kitap için yapılmamış olmaları bizleri bu uygulamayı geliştirmeye teşvik etmiştir. Amaçlarımızın bir diğeri de insanları kitap okumaya teşvik etmektir, özendirmektir.',
             style: TextStyle(fontSize: 16),
           ),
         ),
