@@ -73,7 +73,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: StreamBuilder(
@@ -265,7 +265,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       avatar: Icon(Icons.star, size: 16, color: Colors.yellow),
                       backgroundColor: Colors.white.withOpacity(0.1),
                       label: Text(
-                        rating.toString(),
+                        rating.toStringAsFixed(1),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

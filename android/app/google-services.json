@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "776071654291",
+    "project_id": "f150-bookdb",
+    "storage_bucket": "f150-bookdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776071654291:android:33a1a2472b74fc0f395666",
+        "android_client_info": {
+          "package_name": "com.example.bookdb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776071654291-rkd0gru4hojm6noemlhb9rs8otbhvk1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB42aokZ0k5KE40M8fMh64veDBwqedwDvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776071654291-rkd0gru4hojm6noemlhb9rs8otbhvk1e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

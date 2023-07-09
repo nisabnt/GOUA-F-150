@@ -318,13 +318,13 @@ class _detailPageState extends State<detailPage> {
                   ),
                   bookImage(),
                   description(),
-                  rateBook(),
+                  Auth().currentUser != null ? rateBook() : Container(),
                   SizedBox(
                     height: 30,
                   ),
                 ],
               ),
-              saveButton(),
+              Auth().currentUser != null ? saveButton() : Container(),
             ],
           )
         ],

@@ -27,7 +27,7 @@ class _SavedPageState extends State<SavedPage> {
     final _booksQuery = FirebaseFirestore.instance
         .collection('books')
         .where('save', arrayContains: uid);
-    return StreamBuilder(
+    return Auth().currentUser != null ? StreamBuilder(
         stream: _booksQuery.snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -77,6 +77,11 @@ class _SavedPageState extends State<SavedPage> {
               child: CircularProgressIndicator(),
             );
           }
-        });
+        }) : Center(child: Column(
+          children: [
+            Icon(Icons.lock, size: 64,),
+            Text("Kaydedilenlerim kısmını görüntüleyebilmek için giriş yapmalısınız"),
+          ],
+        ),);
   }
 }
