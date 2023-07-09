@@ -1,9 +1,13 @@
+import 'package:bookdb/Screens/achievementPage.dart';
 import 'package:bookdb/Screens/categoryPage.dart';
+import 'package:bookdb/Screens/login_screen.dart';
 import 'package:bookdb/Screens/savedPage.dart';
+import 'package:bookdb/Screens/settingsPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:bookdb/auth.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 //import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,7 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //   return snapshot.docs.length;
   // }
-
+  //await Auth().signOut();
+  // Auth().currentUser != null
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () async {
-                await Auth().signOut();
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
               },
               icon: Icon(
-                Icons.logout,
-                color: Colors.black,
-              ))
+                Icons.settings,
+                color: _selectedIndex == 3 ? Colors.redAccent : Colors.black,
+              )),
         ],
         title: Text(
           "BookDb",
@@ -58,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pages = <Widget>[
     GridView.builder(
       gridDelegate:
-      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemCount: 10,
       itemBuilder: (context, index) {
         final pageWithNames = [
@@ -107,16 +114,24 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     ),
     SavedPage(),
+    achievementPage(),
+    SettingsPage(),
   ];
 
   BottomNavigationBar footer() {
     return BottomNavigationBar(
+      unselectedItemColor: Colors.black,
+      selectedItemColor: _selectedIndex == 3 ? Colors.black : Colors.redAccent,
+      selectedFontSize: _selectedIndex == 3 ? 12 : 14,
+      unselectedLabelStyle: TextStyle(color: Colors.black),
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Ana Sayfa"),
         BottomNavigationBarItem(
             icon: Icon(Icons.bookmark), label: "Kaydedilenlerim"),
+        BottomNavigationBarItem(
+            icon: Icon(MdiIcons.trophy), label: "Başarılarım"),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: _selectedIndex == 3 ? 0 : _selectedIndex,
       onTap: (value) {
         setState(() {
           _selectedIndex = value;

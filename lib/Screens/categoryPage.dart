@@ -48,7 +48,7 @@ class _CategoryPageState extends State<CategoryPage> {
     final _booksQuery = FirebaseFirestore.instance
         .collection('books')
         .where('category', isEqualTo: categoryName);
-   
+
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryName),
@@ -73,7 +73,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: StreamBuilder(
@@ -99,9 +99,7 @@ class _CategoryPageState extends State<CategoryPage> {
                         itemBuilder: (context, index) {
                           final DocumentSnapshot documentSnapshot =
                               matchedDocuments[index];
-                         return buildBookCard(documentSnapshot, context);
-                         
-                          
+                          return buildBookCard(documentSnapshot, context);
                         },
                       );
                     }
