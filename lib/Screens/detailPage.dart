@@ -42,13 +42,15 @@ class _detailPageState extends State<detailPage> {
             "Kitap Detayı",
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
           ),
-          InkWell(onTap: () {
-             Navigator.push(
+          InkWell(
+              onTap: () {
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => RatingPage(book: book),
                     ));
-          }, child: Icon(Icons.graphic_eq)),
+              },
+              child: Icon(Icons.graphic_eq)),
         ]),
       );
     }
@@ -318,13 +320,13 @@ class _detailPageState extends State<detailPage> {
                   ),
                   bookImage(),
                   description(),
-                  rateBook(),
+                  Auth().currentUser != null ? rateBook() : Container(),
                   SizedBox(
                     height: 30,
                   ),
                 ],
               ),
-              saveButton(),
+              Auth().currentUser != null ? saveButton() : Container(),
             ],
           )
         ],

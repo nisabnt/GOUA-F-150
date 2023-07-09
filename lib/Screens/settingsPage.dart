@@ -1,114 +1,23 @@
 import 'package:flutter/material.dart';
 
-class settingsPage extends StatefulWidget {
-  @override
-  _settingsPageState createState() => _settingsPageState();
-}
+import '../auth.dart';
 
-class _settingsPageState extends State<settingsPage> {
-  bool _darkModeEnabled = false; // Koyu tema durumunu tutan değişken
-  bool _notificationEnabled = false; // Bildirim durumunu tutan değişken
-
-  void _toggleDarkMode(bool value) {
-    setState(() {
-      _darkModeEnabled = value;
-    });
-  }
-
-  void _toggleNotifications(bool value) {
-    setState(() {
-      _notificationEnabled = value;
-    });
-    if (value) {
-      // Bildirimler açıldığında yapılacak işlemler
-    } else {
-      // Bildirimler kapatıldığında yapılacak işlemler
-    }
-  }
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Ayarlar',
-      theme: _darkModeEnabled
-          ? ThemeData.dark()
-          : ThemeData
-              .light(), // Tema ayarlarını koyu veya açık temaya göre belirle
-      home: SettingsPage(
-        darkModeEnabled: _darkModeEnabled,
-        notificationEnabled: _notificationEnabled,
-        toggleDarkMode: _toggleDarkMode,
-        toggleNotifications: _toggleNotifications,
-      ),
-    );
-  }
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class SettingsPage extends StatelessWidget {
-  final bool darkModeEnabled;
-  final bool notificationEnabled;
-  final Function(bool) toggleDarkMode;
-  final Function(bool) toggleNotifications;
-
-  SettingsPage({
-    required this.darkModeEnabled,
-    required this.notificationEnabled,
-    required this.toggleDarkMode,
-    required this.toggleNotifications,
-  });
-
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Ayarlar',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context)
-            .primaryColor, // Başlık çubuğu rengini temaya göre ayarla
-        elevation: 0,
-      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Bildirim Ayarları',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 12),
-            SwitchListTile(
-              title: Text('Bildirimleri Aç'),
-              value: notificationEnabled,
-              onChanged:
-                  toggleNotifications, // Bildirim ayarlarını değiştirmek için gerekli fonksiyonu çağır
-            ),
-            Divider(),
-            Text(
-              'Temayı Ayarla',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 12),
-            SwitchListTile(
-              title: Text('Koyu Tema'),
-              value: darkModeEnabled,
-              onChanged:
-                  toggleDarkMode, // Koyu tema ayarlarını değiştirmek için gerekli fonksiyonu çağır
-            ),
-            Divider(),
-            SizedBox(height: 16),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -163,8 +72,12 @@ class SettingsPage extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: Text('Çıkış Yap'),
-                    content: Text('Çıkış yapmak istediğinize emin misiniz?'),
+                    title: Auth().currentUser != null
+                        ? Text('Çıkış Yap')
+                        : Text('Giriş Yap'),
+                    content: Auth().currentUser != null
+                        ? Text('Çıkış yapmak istediğinize emin misiniz?')
+                        : Text('Giriş yapmak istediğinize emin misiniz?'),
                     actions: [
                       ElevatedButton(
                         onPressed: () {
@@ -173,8 +86,10 @@ class SettingsPage extends StatelessWidget {
                         child: Text('İptal'),
                       ),
                       ElevatedButton(
-                        onPressed: () {
-                          // Çıkış yapma işlemleri
+                        onPressed: () async {
+                          Auth().currentUser != null
+                              ? await Auth().signOut()
+                              : Navigator.pop(context);
                           Navigator.pop(context);
                         },
                         child: Text('Evet'),
@@ -187,14 +102,22 @@ class SettingsPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 12),
                 child: Row(
                   children: [
-                    Icon(Icons.exit_to_app, color: Colors.red),
+                    Icon(
+                        Auth().currentUser != null
+                            ? Icons.exit_to_app
+                            : Icons.login,
+                        color: Auth().currentUser != null
+                            ? Colors.red
+                            : Colors.greenAccent),
                     SizedBox(width: 12),
                     Text(
-                      'Çıkış Yap',
+                      Auth().currentUser != null ? 'Çıkış Yap' : 'Giriş Yap',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                        color: Auth().currentUser != null
+                            ? Colors.red
+                            : Colors.greenAccent,
                       ),
                     ),
                   ],
@@ -219,7 +142,7 @@ class AboutPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Text(
-            'Bookdb uygulaması, günümüzde kitapları inceleyip, okuduklarımızı listemize kaydedip bunlara puan verebileceğimiz ve farklı özelliklere de sahip bir uygulama olarak tasarlanmıştır.Geliştirilme sebebi, kitapseverlere hitap etmek üzere bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. Kullanıcı kesimimiz kitap okumayı seven her insanı kapsamaktadır. Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelen bir şekilde oluşturulmuştur. Kullanıcılarımız uygulama içerisinde aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir.Uygulamanın benzer versiyonlarının farklı amaçlar için kullanıldığı göz önüne alınarak, özellikle kitap için yapılmamış olmaları bizleri bu uygulamayı geliştirmeye teşvik etmiştir. Amaçlarımızın bir diğeri de insanları kitap okumaya teşvik etmektir, özendirmektir.',
+            'BookBD uygulaması, günümüzde film listelerinde gezinebileceğimiz, izlediğimiz filmleri kaydedebileceğimiz, bunları puanlayabileceğimiz ve birçok özelliğe sahip uygulamaların varlığı fakat bunun kitaplar için olmaması ihtiyacı üzerine tasarlanmıştır. Kitapsever her yaştan insanımızın varlığının farkında olup daha çok gençlerin asıl kullanıcı kesimimiz olarak hedefe alınma sebebi, birçoğumuzun okuduğu, okuyacağı şeyleri(birçok tür içerir) liste haline getirme ve bununla ilgili genel kanıyı merak etme(puanlama sonucunu) durumumuzla ilgilidir. Burada kullanıcılarımız aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı \'okuduklarım,\'okuyacaklarım\' listelerine kaydedebilme, beğenme durumlarına göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir. Uygulamamızın amacı sektördeki film versiyonun kitap için olan halini karşılamak,o an aklımıza gelen kitabı listeye eklemek,okuyucuların kitap hakkındaki beğeni oranını görebilmek gibi faaliyetleri içererek keyifli bir kullanım sunmaktır. Bu uygulamayla aynı zamanda insanların kitap okumaya teşvik edileceği, özendirileceği düşünülmektedir.',
             style: TextStyle(fontSize: 16),
           ),
         ),
