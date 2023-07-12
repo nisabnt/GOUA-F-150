@@ -73,7 +73,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 7,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: StreamBuilder(
@@ -108,7 +108,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Container(
               color: Colors.grey[200],
               padding: EdgeInsets.symmetric(horizontal: 10),
