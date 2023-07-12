@@ -31,7 +31,7 @@ class _SavedPageState extends State<SavedPage> {
         stream: _booksQuery.snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView.builder(
+            return Auth().currentUser?.uid != null ? ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   final DocumentSnapshot documentSnapshot =
@@ -47,8 +47,8 @@ class _SavedPageState extends State<SavedPage> {
                         height: 150,
                         fit: BoxFit.cover,
                       ),
-                      title: Text(documentSnapshot["name"]),
-                      subtitle: Text(documentSnapshot["author"]),
+                      title: Text(documentSnapshot["name"], style: TextStyle(fontWeight: FontWeight.bold,color: Colors.redAccent)),
+                      subtitle: Text(documentSnapshot["author"], style: TextStyle(color: Colors.white),),
                       trailing: InkWell(
                           onTap: _active
                               ? () async {
@@ -68,10 +68,27 @@ class _SavedPageState extends State<SavedPage> {
                                   });
                                 }
                               : null,
-                          child: Icon(Icons.bookmark)),
+                          child: Container(child: Icon(Icons.bookmark, color: Color.fromRGBO(255, 255, 240, 1),))),
+                    ),
+                    
+                  );
+                
+                }) : Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 250),
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.lock,
+                            size: 64,
+                            color: Colors.white,
+                          ),
+                          Text(
+                              "Kaydedilenler kısmını görüntüleyebilmek için giriş yapmalısınız", style: TextStyle(color: Colors.white),),
+                        ],
+                      ),
                     ),
                   );
-                });
           } else {
             return Center(
               child: CircularProgressIndicator(),

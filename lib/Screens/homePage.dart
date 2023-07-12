@@ -35,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+        
         centerTitle: true,
         actions: [
           IconButton(
@@ -46,17 +47,19 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               icon: Icon(
                 Icons.settings,
-                color: _selectedIndex == 3 ? Colors.redAccent : Colors.black,
+                color: _selectedIndex == 3 ? Colors.redAccent : Colors.white,
               )),
         ],
+        
         title: Text(
-          "BookDb",
+          "BookDB",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
       body: _pages[_selectedIndex],
       bottomNavigationBar: footer(),
     );
@@ -64,8 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = <Widget>[
     GridView.builder(
+      
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1, childAspectRatio: 2),
       itemCount: 10,
       itemBuilder: (context, index) {
         final pageWithNames = [
@@ -93,22 +97,17 @@ class _MyHomePageState extends State<MyHomePage> {
           future: bookCount(pageWithNames[index][0]),
           builder: (context, snapshot) {
             final int count = snapshot.data ?? 0;
-            return Container(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              height: MediaQuery.of(context).size.height,
-              color: Colors.grey.shade300,
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              CategoryPage(category: pageWithNames[index][0]),
-                        ));
-                  },
-                  child: getExpanded(pageWithNames[index][1],
-                      pageWithNames[index][2], "$count Kitap")),
-            );
+            return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CategoryPage(category: pageWithNames[index][0]),
+                      ));
+                },
+                child: getExpanded(pageWithNames[index][1],
+                    pageWithNames[index][2], "$count Kitap"));
           },
         );
       },
@@ -120,10 +119,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   BottomNavigationBar footer() {
     return BottomNavigationBar(
-      unselectedItemColor: Colors.black,
-      selectedItemColor: _selectedIndex == 3 ? Colors.black : Colors.redAccent,
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+      unselectedItemColor: Colors.white,
+      selectedItemColor: _selectedIndex == 3 ? Colors.white : Colors.redAccent,
       selectedFontSize: _selectedIndex == 3 ? 12 : 14,
-      unselectedLabelStyle: TextStyle(color: Colors.black),
+      unselectedLabelStyle: TextStyle(color: Colors.white),
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Ana Sayfa"),
         BottomNavigationBarItem(
@@ -157,25 +157,25 @@ Container getExpanded(String image, String mainText, String subText) {
         ),
         Text(
           "$mainText",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.5, color: Colors.white),
         ),
         SizedBox(
           height: 5.0,
         ),
         Text(
           "$subText",
-          style: TextStyle(fontSize: 13.0),
+          style: TextStyle(fontSize: 16.5, color: Colors.redAccent),
         ),
       ],
     ),
     margin: EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: Color.fromRGBO(30, 33, 36, 0.7),
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(5),
-        topRight: Radius.circular(5),
-        bottomLeft: Radius.circular(5),
-        bottomRight: Radius.circular(5),
+        topLeft: Radius.circular(12),
+        topRight: Radius.circular(12),
+        bottomLeft: Radius.circular(12),
+        bottomRight: Radius.circular(12),
       ),
       boxShadow: [
         BoxShadow(),

@@ -26,6 +26,7 @@ class _detailPageState extends State<detailPage> {
   Widget build(BuildContext context) {
     Widget header() {
       return Container(
+        
         padding: EdgeInsets.symmetric(horizontal: 30),
         margin: EdgeInsets.only(top: 30),
         child:
@@ -37,10 +38,11 @@ class _detailPageState extends State<detailPage> {
               child: Icon(
                 Icons.chevron_left_rounded,
                 size: 30,
+                color: Colors.white,
               )),
           Text(
             "Kitap Detayı",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+            style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600, fontSize: 19),
           ),
           InkWell(
               onTap: () {
@@ -50,7 +52,7 @@ class _detailPageState extends State<detailPage> {
                       builder: (context) => RatingPage(book: book),
                     ));
               },
-              child: Icon(Icons.graphic_eq)),
+              child: Icon(Icons.graphic_eq, color: Colors.white,)),
         ]),
       );
     }
@@ -204,7 +206,7 @@ class _detailPageState extends State<detailPage> {
             width: 50,
 
             decoration:
-                BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                BoxDecoration(color: Colors.redAccent, shape: BoxShape.circle),
             child: Icon(
               save ? Icons.bookmark_outlined : Icons.bookmark_outline_sharp,
               color: Colors.white,
@@ -218,44 +220,49 @@ class _detailPageState extends State<detailPage> {
       final uid = Auth().currentUser?.uid;
       Map<String, dynamic> ratingData = book["rating"];
 
-      return Container(
-        decoration: BoxDecoration(
-            color: Colors.blueGrey[50], borderRadius: BorderRadius.circular(9)),
-        child: RatingBar.builder(
-          initialRating: 3,
-          minRating: 1,
-          direction: Axis.horizontal,
-          allowHalfRating: false,
-          itemCount: 5,
-          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-          itemBuilder: (context, _) => Icon(
-            Icons.star,
-            color: Colors.blue,
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 23.5),
+          child: Container(
+            decoration: BoxDecoration(
+             ),
+            child: RatingBar.builder(
+              initialRating: 3,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: false,
+              itemCount: 5,
+              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => Icon(
+                Icons.star,
+                color: Colors.redAccent,
+              ),
+              onRatingUpdate: _isEnabledRating
+                  ? (rating) async {
+                      _isEnabledRating = false;
+              
+                      double ratingDouble = double.parse(rating.toString());
+                      int ratingInt = ratingDouble.round();
+                      ratingData[uid!] = ratingInt.toString();
+              
+                      await FirebaseFirestore.instance
+                          .collection("books")
+                          .doc(book.id)
+                          .update({"rating": ratingData});
+                      await FirebaseFirestore.instance
+                          .collection("books")
+                          .doc(book.id)
+                          .get()
+                          .then((value) {
+                        book = value;
+                      });
+                      setState(() {
+                        _isEnabledRating = true;
+                      });
+                    }
+                  : (value) {},
+            ),
           ),
-          onRatingUpdate: _isEnabledRating
-              ? (rating) async {
-                  _isEnabledRating = false;
-
-                  double ratingDouble = double.parse(rating.toString());
-                  int ratingInt = ratingDouble.round();
-                  ratingData[uid!] = ratingInt.toString();
-
-                  await FirebaseFirestore.instance
-                      .collection("books")
-                      .doc(book.id)
-                      .update({"rating": ratingData});
-                  await FirebaseFirestore.instance
-                      .collection("books")
-                      .doc(book.id)
-                      .get()
-                      .then((value) {
-                    book = value;
-                  });
-                  setState(() {
-                    _isEnabledRating = true;
-                  });
-                }
-              : (value) {},
         ),
       );
     }
@@ -266,7 +273,7 @@ class _detailPageState extends State<detailPage> {
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(30), bottom: Radius.circular(30))),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Expanded(
@@ -303,11 +310,13 @@ class _detailPageState extends State<detailPage> {
             style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey),
           ),
           infoDescription(),
+          Auth().currentUser != null ? rateBook() : Container(),
         ]),
       );
     }
 
     return Scaffold(
+     backgroundColor: Color.fromRGBO(30, 33, 36, 1),
       body: ListView(
         children: [
           Stack(
@@ -320,7 +329,7 @@ class _detailPageState extends State<detailPage> {
                   ),
                   bookImage(),
                   description(),
-                  Auth().currentUser != null ? rateBook() : Container(),
+                  
                   SizedBox(
                     height: 30,
                   ),

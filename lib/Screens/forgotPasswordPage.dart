@@ -19,7 +19,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: Text("Şifre sıfırlama maili gönderildi lütfen e-mailinizi kontrol edin!"),
+            content: Text("Şifre sıfırlama maili gönderildi lütfen e-mailinizi kontrol edin!", style: TextStyle(color: Colors.white),),
           );
         },
       );
@@ -28,7 +28,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: Text("Kullanıcı bulunamadı."),
+            backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+            content: Text("Kullanıcı bulunamadı.", style: TextStyle(color: Colors.white),),
           );
         },
       );
@@ -38,14 +39,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+      appBar: AppBar(backgroundColor: Color.fromRGBO(30, 33, 36, 1),),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Center(
                 child: Text(
-                  "Lütfen Şifre Sıfırlama Maili İçin E-Mailinizi Girin",
+                  "Lütfen Şifre Sıfırlama Maili İçin e-postanızı Girin",
                   style:
                       TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.grey),
                 ),
@@ -56,9 +58,20 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: TextField(
+                  cursorColor: Colors.white,
+                  style: TextStyle(color: Colors.white),
                   controller: _controllerEmail,
                   decoration: InputDecoration(
-                    labelText: 'E-Mail',
+                    labelStyle: TextStyle(color: Colors.white),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    labelText: 'e-posta',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -76,7 +89,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   "Şifre Sıfırla",
                   style: TextStyle(color: Colors.white),
                 ),
-                color: Colors.blue,
+                color: Colors.redAccent,
               ),
             ],
           ),

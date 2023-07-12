@@ -50,7 +50,9 @@ class _CategoryPageState extends State<CategoryPage> {
         .where('category', isEqualTo: categoryName);
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(30, 33, 36, 1),
         title: Text(categoryName),
       ),
       body: Column(
@@ -58,22 +60,37 @@ class _CategoryPageState extends State<CategoryPage> {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
             child: TextField(
+                 style: TextStyle(color: Colors.white),
+              cursorColor: Colors.white,
               onChanged: (value) {
                 setState(() {
                   searchText = value;
                 });
               },
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.redAccent,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: Colors.white),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: Colors.white),
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 labelText: 'Ara',
+                labelStyle: TextStyle(color: Colors.white),
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: Colors.white),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 7,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: StreamBuilder(
@@ -108,9 +125,9 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Container(
-              color: Colors.grey[200],
+              color: Color.fromRGBO(30, 33, 36, 1),
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: StreamBuilder(
                   stream: _booksQuery.snapshots(),
@@ -193,12 +210,13 @@ class _CategoryPageState extends State<CategoryPage> {
                     children: [
                       Chip(
                         avatar:
-                            Icon(Icons.star, size: 16, color: Colors.yellow),
-                        backgroundColor: Colors.white.withOpacity(0.1),
+                            Icon(Icons.star, size: 16, color: Colors.white),
+                        backgroundColor: Colors.red,
                         label: Text(
                           rating.toStringAsFixed(1),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.white
                           ),
                         ),
                       ),
@@ -215,6 +233,7 @@ class _CategoryPageState extends State<CategoryPage> {
           goDetialPage(context, book);
         },
         child: Card(
+          color: Colors.red,
           elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
@@ -226,13 +245,14 @@ class _CategoryPageState extends State<CategoryPage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.5),
+                      //color: Colors.white.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(5)),
                   child: Text(
                     book["name"],
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
+                      color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -243,13 +263,14 @@ class _CategoryPageState extends State<CategoryPage> {
                   child: Center(
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.7),
+                          //color: Colors.white.withOpacity(0.7),
                           borderRadius: BorderRadius.circular(5)),
                       child: SingleChildScrollView(
                         child: Text(
                           _truncateDescription(book["description"], 120),
                           overflow: TextOverflow.fade,
                           textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
@@ -260,11 +281,12 @@ class _CategoryPageState extends State<CategoryPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Chip(
-                      avatar: Icon(Icons.star, size: 16, color: Colors.yellow),
-                      backgroundColor: Colors.white.withOpacity(0.1),
+                      avatar: Icon(Icons.star, size: 16, color: Colors.white),
+                      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
                       label: Text(
                         rating.toString(),
                         style: TextStyle(
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -324,11 +346,12 @@ class _CategoryPageState extends State<CategoryPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Chip(
-                      avatar: Icon(Icons.star, size: 16, color: Colors.yellow),
-                      backgroundColor: Colors.white.withOpacity(0.1),
+                      avatar: Icon(Icons.star, size: 16, color: Colors.white),
+                      backgroundColor: Colors.red,
                       label: Text(
                         rating.toStringAsFixed(1),
                         style: TextStyle(
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

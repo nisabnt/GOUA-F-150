@@ -141,12 +141,12 @@ class _achievementPageState extends State<achievementPage> {
                     return ListView(
                       children: [
                         ListTile(
-                          leading: Icon(MdiIcons.starThreePoints),
+                          leading: Icon(MdiIcons.starThreePoints, color: Colors.white,),
                           title: Text(
                             achievements[2][pidx][0].toString(),
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),
                           ),
-                          subtitle: Text("$point Puan"),
+                          subtitle: Text("$point Puan", style: TextStyle(color: Colors.white),),
                         ),
                         Divider(),
                         AchievementListItem(
@@ -176,15 +176,21 @@ class _achievementPageState extends State<achievementPage> {
                   });
             })
         : Center(
-            child: Column(
-              children: [
-                Icon(
-                  Icons.lock,
-                  size: 64,
-                ),
-                Text(
-                    "Başarılarım kısmını görüntüleyebilmek için giriş yapmalısınız"),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.only(top: 250),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.lock,
+                    size: 64,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    "Başarılarım kısmını görüntüleyebilmek için giriş yapmalısınız",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           );
   }
@@ -205,12 +211,12 @@ class AchievementListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(MdiIcons.trophyAward),
+      leading: Icon(MdiIcons.trophyAward, color: Colors.white,),
       title: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),
       ),
-      subtitle: Text(subtitle),
+      subtitle: Text(subtitle, style: TextStyle(color: Colors.white),),
       trailing: CircularProgressBar(progress: progress),
     );
   }
@@ -229,7 +235,7 @@ class CircularProgressBar extends StatelessWidget {
       height: 40,
       child: CircularProgressIndicator(
         value: progress,
-        
+        color: Color.fromRGBO(255, 255, 240, 1),
       ),
     );
   }
