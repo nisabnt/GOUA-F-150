@@ -63,184 +63,206 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyHomePage(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.book_online)),
-        ],
+       centerTitle: true,
         title: const Text('BookDB'),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.redAccent,
       ),
       body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, snapshot) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-      
-              //Icon:
-              children: [
-                const SizedBox(height: 20),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 16),
-                  child: const Icon(
-                    Icons.lock,
-                    size: 99,
-                    color: Colors.grey,
+          itemCount: 1,
+          itemBuilder: (context, snapshot) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                //Icon:
+                children: [
+                  const SizedBox(height: 20),
+                  Container(
+                    height: 183.65,
+                   
+                    child: new Image.asset('images/ta.png'),
+                    alignment: Alignment.center,
                   ),
-                ),
-      
-                //Kullanıcı Adı - E mail
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: TextField(
-                    controller: _controllerEmail,
-                    decoration: InputDecoration(
-                      labelText: 'E-Mail',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-      
-                // Parola Container
-                const SizedBox(height: 16),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: TextField(
-                    controller: _controllerPassword,
-                    obscureText: _obscureText,
-                    decoration: InputDecoration(
-                      labelText: 'Parola',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                            _obscureText ? Icons.visibility_off : Icons.visibility),
-                        onPressed: _togglePasswordVisibility,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Checkbox(
-                          value: rememberMe,
-                          onChanged: (value) {
-                            setState(() {
-                              rememberMe = value!;
-                            });
-                          },
+
+                  //Kullanıcı Adı - E mail
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      cursorColor: Colors.white,
+                      controller: _controllerEmail,
+                      decoration: InputDecoration(
+                        
+                        labelStyle: TextStyle(color: Colors.white),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: Colors.redAccent),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        const Text('Beni Hatırla'),
-                      ],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: Colors.redAccent),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        labelText: 'e-posta',
+                       
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ForgotPasswordPage(),
+                  ),
+
+                  // Parola Container
+                  const SizedBox(height: 16),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                       cursorColor: Colors.white,
+                      controller: _controllerPassword,
+                      obscureText: _obscureText,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: Colors.white),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.redAccent),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.redAccent),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        labelText: 'Parola',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(_obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: _togglePasswordVisibility,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyHomePage(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Kayıt Olmadan Devam Et',
+                                style: TextStyle(
+                                  color: Colors.redAccent,
+                                ),
+                              ),
                             ),
-                          );
-                        },
-                        child: const Text(
-                          'Şifremi Unuttum',
-                          style: TextStyle(
-                            color: Colors.blue,
+                          ),
+                        ],
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgotPasswordPage(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Şifremi Unuttum',
+                            style: TextStyle(
+                              color: Colors.redAccent,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                ElevatedButton(
-                  onPressed: () {
-                    _isLogin
-                        ? signInWithEmailAndPassword()
-                        : createUserWithEmailAndPassword();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    padding: const EdgeInsets.all(16),
+                    ],
                   ),
-                  child: Text(
-                    _isLogin ? 'Giriş Yap' : 'Kayıt Ol',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                const Text(
-                  '- veya -',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.55,
-                  height: 50,
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(
+                  const SizedBox(height: 77),
+                  ElevatedButton(
                     onPressed: () {
-                      setState(() {
-                        _isLogin = !_isLogin;
-                      });
+                      _isLogin
+                          ? signInWithEmailAndPassword()
+                          : createUserWithEmailAndPassword();
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.redAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: const EdgeInsets.all(16),
+                    ),
                     child: Text(
-                      _isLogin ? 'Kayıt Ol' : 'Giriş Yap',
+                      _isLogin ? 'Giriş Yap' : 'Kayıt Ol',
                       style: const TextStyle(
-                        color: Colors.blue,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 50),
-                SignInButton(
-                  Buttons.Google,
-                  text: "Google İle Giriş Yap",
-                  elevation: 15,
-                  onPressed: () {
-                    try {
-                      Auth().signInWithGoogle();
-                      // ignore: empty_catches
-                    } catch (e) {}
-                  },
-                ),
-              ],
-            ),
-          );
-        }
-      ),
+                  const SizedBox(width: 12),
+                  
+                  const SizedBox(height: 12),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.55,
+                    height: 50,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        setState(() {
+                          _isLogin = !_isLogin;
+                        });
+                      },
+                      child: Text(
+                        _isLogin ? 'Kayıt Ol' : 'Giriş Yap',
+                        style: const TextStyle(
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                  SignInButton(
+                    
+                    Buttons.Google,
+                    
+                    text: "Google İle Giriş Yap",
+                    elevation: 15,
+                    onPressed: () {
+                      try {
+                        Auth().signInWithGoogle();
+                        // ignore: empty_catches
+                      } catch (e) {}
+                    },
+                  ),
+                ],
+              ),
+            );
+          }),
     );
   }
 }

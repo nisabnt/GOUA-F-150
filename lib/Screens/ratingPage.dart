@@ -25,10 +25,11 @@ class _RatingPageState extends State<RatingPage> {
             child: Icon(
               Icons.chevron_left_rounded,
               size: 30,
+              color: Colors.white,
             )),
         Text(
           "Kitap Oy Oranı",
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19, color: Colors.white),
         ),
         Opacity(opacity: 0.0, child: Icon(Icons.abc)),
       ]),
@@ -53,6 +54,7 @@ class _RatingPageState extends State<RatingPage> {
         one++;
     });
     return Scaffold(
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
       body: Column(
         children: [
           SafeArea(child: header()),
@@ -63,9 +65,11 @@ class _RatingPageState extends State<RatingPage> {
                 children: [
                   Center(
                     child: SfSparkBarChart(
+                      color: Colors.redAccent,
+                      axisLineColor: Colors.redAccent,
                       data: [one,two,three,four,five],
                       labelDisplayMode: SparkChartLabelDisplayMode.all,
-                      labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      labelStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
                   SizedBox(
@@ -74,11 +78,19 @@ class _RatingPageState extends State<RatingPage> {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text("1"),
-                        Text("2"),
-                        Text("3"),
-                        Text("4"),
-                        Text("5"),
+                        Text("1", style: TextStyle(color: Colors.white),),
+                        Text("2",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text("3",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text("4",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text("5",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ]),
                 ],
               ),
