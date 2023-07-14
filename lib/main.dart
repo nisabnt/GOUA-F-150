@@ -9,7 +9,12 @@ import 'firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await initializaiton(null);
   runApp(const MyApp());
+}
+
+Future initializaiton(BuildContext? context) async {
+  await Future.delayed(Duration(seconds: 2));
 }
 
 class MyApp extends StatelessWidget {
