@@ -58,7 +58,7 @@ class _CategoryPageState extends State<CategoryPage> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.all( 10),
             child: TextField(
               style: TextStyle(color: Colors.white),
               cursorColor: Colors.white,
