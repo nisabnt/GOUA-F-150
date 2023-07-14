@@ -60,7 +60,7 @@ class _CategoryPageState extends State<CategoryPage> {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
             child: TextField(
-                 style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white),
               cursorColor: Colors.white,
               onChanged: (value) {
                 setState(() {
@@ -209,15 +209,12 @@ class _CategoryPageState extends State<CategoryPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Chip(
-                        avatar:
-                            Icon(Icons.star, size: 16, color: Colors.white),
+                        avatar: Icon(Icons.star, size: 16, color: Colors.white),
                         backgroundColor: Colors.red,
                         label: Text(
                           rating.toStringAsFixed(1),
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
-                          ),
+                              fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     ],
@@ -284,7 +281,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       avatar: Icon(Icons.star, size: 16, color: Colors.white),
                       backgroundColor: Color.fromRGBO(30, 33, 36, 1),
                       label: Text(
-                        rating.toString(),
+                        rating.toStringAsFixed(1),
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -300,12 +297,10 @@ class _CategoryPageState extends State<CategoryPage> {
       ),
     ];
 
-    return Flexible(
-      child: CardSwiper(
-        cardsCount: cards.length,
-        numberOfCardsDisplayed: 1,
-        cardBuilder: (context, index) => cards[index],
-      ),
+    return CardSwiper(
+      cardsCount: cards.length,
+      numberOfCardsDisplayed: 1,
+      cardBuilder: (context, index) => cards[index],
     );
   }
 
