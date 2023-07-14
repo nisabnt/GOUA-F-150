@@ -19,22 +19,23 @@ Takım Flutter 150
 [Flutter Team 150 Trello Backlog Board](https://trello.com/b/mmCYvCBP/sprint-1)
 
 ## Ürün Açıklaması
-Bookdb uygulaması, günümüzde kitapları inceleyip, okuduklarımızı listemize kaydedip bunlara puan verebileceğimiz ve farklı özelliklere de sahip bir uygulama olarak tasarlanmıştır.
-Geliştirilme sebebi, kitapseverlere hitap etmek üzere bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. Kullanıcı kesimimiz kitap okumayı seven her insanı kapsamaktadır. Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelen bir şekilde oluşturulmuştur. Kullanıcılarımız uygulama içerisinde aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir.
-Uygulamanın benzer versiyonlarının farklı amaçlar için kullanıldığı göz önüne alınarak, özellikle kitap için yapılmamış olmaları bizleri bu uygulamayı geliştirmeye teşvik etmiştir. Amaçlarımızın bir diğeri de insanları kitap okumaya teşvik etmektir, özendirmektir.
-Burada kullanıcılarımız aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı 'okuduklarım,'okuyacaklarım' listelerine kaydedebilme, beğenme durumlarına göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir. Uygulamamızın amacı.. Bu uygulamayla aynı zamanda insanların kitap okumaya teşvik edileceği, özendirileceği düşünülmektedir. 
+BookDB uygulaması, kullanıcıların kitapları inceleyebileceği, okuduklarını kendine özel listeye kaydedebileceği ve daha birçok özelliğe sahip bir uygulama olarak tasarlanmıştır.
+Geliştirilme sebebi, kitapseverlere hitap eden, bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. Hedef kitlemiz kitap okumayı seven her insanı kapsamaktadır. Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelecek şekilde oluşturulmuştur. Kullanıcılarımız uygulama içerisinde kategoriler arasında gezinebilme, aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen puanlardan genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir. 
+Kitapseverlerin zevkle kullanabileceği, kullanıcı dostu bir uygulamanın eksikliği bizi bu uygulamayı geliştirmeye teşvik etmiştir.  
 
+- **Uygulama birincil fonksiyonu**: Uygulama kullanıcısı kitapseverlerimiz uygulamaya kendi hesabıyla giriş yapıp, birçok kategoride aradığı, merak ettiği kitabı bularak kitap hakkında genel bilgilere, özetine, diğer kullanıcıların vermiş olduğu oylara erişebilirken kendisi de kitapları puanlayabiliyor.
 
-- **Uygulama birincil fonksiyonu**: Uygulama kullanıcısı kitapseverlerimiz uygulamaya girip aradığı, merak ettiği kitabı bulup kitabın puanına, kitap içeriğine, türüne bakabiliyor ve kendisi okuduysa puan verebiliyor. 
-
-- **Uygulama ikincil fonksiyonu**: kullanıcının uygulama üzerinden verdiği puanı diğer kullanıcılara yansıtmak üzere işleriz, ortalama puan oluşmuş olur ve kullanıcı kitabı dilerse 'okuduklarım' listesine dilerse 'okuyacaklarım listesine ekleyebilr. 
+- **Uygulama ikincil fonksiyonu**: Kullanıcının uygulama üzerinden verdiği puanı ve kaydetme bilgisini sayısal olarak diğer kullanıcılara yansıtmak üzere saklarız, böylelikle ortalama puan oluşmuş olur. Aynı zamanda Kullanıcı bu iki verinin ortalamasıyla başarı puanı elde eder.
 
 ## Ürün Özellikleri
 
-- Araştırılan kitabın hakkında içerik açısından özeti, türü, yazarı gibi bilgileri içermesi, 
-- Kitabın kullanıcı puanlarının ortalamasının görülebilmesi, 
-- Kitaba kullanıcı tarafından puan verilebilmesi, 
-- Kitabın kullanıcı tarafından oluşturulmuş olan 'okuduklarım', 'okuyacaklarım' listelerine eklenebilir olması. 
+- Araştırılan kitabın hakkında içerik açısından özeti, türü, yazarı gibi bilgileri içermesi,
+- Kitaba kullanıcı tarafından puan verilebilmesi,
+- Kitabın "kullanıcı kitap oy oranı"nın  görülebilmesi, 
+- Kitabın kullanıcıya özel olan "kaydedilenlerim"e eklenebilmesi,
+- Kullanıcının kaydettiği ve puan verdiği kitap ortalamasına göre başarı puanı elde edebilmesi,
+- Kullanıcı girişi yapmadan belirli özellikleri kullanabilmesi.
+  
 
 ## Hedef Kitle
 
