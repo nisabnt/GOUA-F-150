@@ -284,7 +284,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       avatar: Icon(Icons.star, size: 16, color: Colors.white),
                       backgroundColor: Color.fromRGBO(30, 33, 36, 1),
                       label: Text(
-                        rating.toString(),
+                        rating.toStringAsFixed(1),
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -300,12 +300,10 @@ class _CategoryPageState extends State<CategoryPage> {
       ),
     ];
 
-    return Flexible(
-      child: CardSwiper(
-        cardsCount: cards.length,
-        numberOfCardsDisplayed: 1,
-        cardBuilder: (context, index) => cards[index],
-      ),
+    return CardSwiper(
+      cardsCount: cards.length,
+      numberOfCardsDisplayed: 1,
+      cardBuilder: (context, index) => cards[index],
     );
   }
 
