@@ -161,8 +161,14 @@ class AboutPage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(16),
               child: Text(
-                'BookBD uygulaması, günümüzde film listelerinde gezinebileceğimiz, izlediğimiz filmleri kaydedebileceğimiz, bunları puanlayabileceğimiz ve birçok özelliğe sahip uygulamaların varlığı fakat bunun kitaplar için olmaması ihtiyacı üzerine tasarlanmıştır. Kitapsever her yaştan insanımızın varlığının farkında olup daha çok gençlerin asıl kullanıcı kesimimiz olarak hedefe alınma sebebi, birçoğumuzun okuduğu, okuyacağı şeyleri(birçok tür içerir) liste haline getirme ve bununla ilgili genel kanıyı merak etme(puanlama sonucunu) durumumuzla ilgilidir. Burada kullanıcılarımız aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı \'okuduklarım,\'okuyacaklarım\' listelerine kaydedebilme, beğenme durumlarına göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir. Uygulamamızın amacı sektördeki film versiyonun kitap için olan halini karşılamak,o an aklımıza gelen kitabı listeye eklemek,okuyucuların kitap hakkındaki beğeni oranını görebilmek gibi faaliyetleri içererek keyifli bir kullanım sunmaktır. Bu uygulamayla aynı zamanda insanların kitap okumaya teşvik edileceği, özendirileceği düşünülmektedir.',
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                'BookDB uygulaması, günümüzde kitapları inceleyip, okuduklarımızı listemize kaydedip bunlara puan verebileceğimiz ve farklı özelliklere de sahip bir uygulama olarak tasarlanmıştır.'
+                    'Geliştirilme sebebi, kitapseverlere hitap etmek üzere bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. '
+                    'Kullanıcı kesimimiz kitap okumayı seven her insanı kapsamaktadır.'
+                    'Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelen bir şekilde oluşturulmuştur. '
+                    'Kullanıcılarımız uygulama içerisinde aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir.'
+                    'Uygulamanın benzer versiyonlarının farklı amaçlar için kullanıldığı göz önüne alınarak, özellikle kitap için yapılmamış olmaları bizleri bu uygulamayı geliştirmeye teşvik etmiştir. '
+                    'Amaçlarımızın bir diğeri de insanları kitap okumaya teşvik etmek ve özendirmektir.',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
           );
@@ -185,7 +191,17 @@ class HelpPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Text(
-            'Uygulama içindeki temel özellikleri kullanmak için aşağıdaki adımları izleyebilirsiniz:\n\n1. Ana sayfada arama çubuğunu kullanarak istediğiniz kitabı arayabilirsiniz.\n\n2. Arama sonuçlarından istediğiniz kitaba dokunun ve detay sayfasına gidin.\n\n3. Detay sayfasında kitabın içeriği, yazarı, sayfası sayısı gibi bilgilere erişebilirsiniz.\n\n4. Kitabı listenize kaydetmek için ilgili butonu kullanabilirsiniz.\n\n5. Beğendiğiniz kitaplara puan vermek için kitap detay sayfasında bulunan puanlama bölümünü kullanabilirsiniz.\n\n6. Ayarlar sayfasından koyu tema ve bildirim ayarlarını düzenleyebilirsiniz.\n\n7. Çıkış yapmak istediğinizde "Çıkış Yap" butonunu kullanabilirsiniz.\n\n8. Kitap oy oranını görebilir, kendi oyladığınız ve kaydettiğiniz kitaplar sonucunda başarınızın durumunu ölçebilirsiniz.\n\n9. Uygulamayı giriş yapmadan da kullanabilir, kaydetme, puan verme gibi işlemleri gerçekleştirmek için giriş yapmanız gerekmektedir.\n\nBu şekilde BookBD uygulamasını verimli bir şekilde kullanabilirsiniz. Daha fazla yardıma ihtiyaç duyarsanız lütfen bizimle iletişime geçin.',
+            'Uygulama içindeki temel özellikleri kullanmak için aşağıdaki adımları izleyebilirsiniz:\n\n'
+                '1. Ana sayfada arama çubuğunu kullanarak istediğiniz kitabı arayabilirsiniz.\n\n'
+                '2. Arama sonuçlarından istediğiniz kitaba dokunun ve detay sayfasına gidin.\n\n'
+                '3. Detay sayfasında kitabın içeriği, yazarı, sayfası sayısı gibi bilgilere erişebilirsiniz.\n\n'
+                '4. Kitabı listenize kaydetmek için ilgili butonu kullanabilirsiniz.\n\n'
+                '5. Beğendiğiniz kitaplara puan vermek için kitap detay sayfasında bulunan puanlama bölümünü kullanabilirsiniz.\n\n'
+                '6. Ayarlar sayfasından koyu tema ve bildirim ayarlarını düzenleyebilirsiniz.\n\n'
+                '7. Çıkış yapmak istediğinizde "Çıkış Yap" butonunu kullanabilirsiniz.\n\n'
+                '8. Kitap oy oranını görebilir, kendi oyladığınız ve kaydettiğiniz kitaplar sonucunda başarınızın durumunu ölçebilirsiniz.\n\n'
+                '9. Uygulamayı giriş yapmadan da kullanabilir, kaydetme, puan verme gibi işlemleri gerçekleştirmek için giriş yapmanız gerekmektedir.\n\n'
+                'Bu şekilde BookBD uygulamasını verimli bir şekilde kullanabilirsiniz. Daha fazla yardıma ihtiyaç duyarsanız lütfen bizimle iletişime geçin.',
             style: TextStyle(fontSize: 16, color: Colors.white),
           ),
         ),

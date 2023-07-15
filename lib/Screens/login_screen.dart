@@ -63,206 +63,193 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+      backgroundColor: const Color.fromRGBO(30, 33, 36, 1),
       appBar: AppBar(
-       centerTitle: true,
+        centerTitle: true,
         title: const Text('BookDB'),
         backgroundColor: Colors.redAccent,
       ),
       body: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, snapshot) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                //Icon:
-                children: [
-                  const SizedBox(height: 20),
-                  Container(
-                    height: 183.65,
-                   
-                    child: new Image.asset('images/ta.png'),
-                    alignment: Alignment.center,
-                  ),
-
-                  //Kullanıcı Adı - E mail
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      cursorColor: Colors.white,
-                      controller: _controllerEmail,
-                      decoration: InputDecoration(
-                        
-                        labelStyle: TextStyle(color: Colors.white),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.redAccent),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.redAccent),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        labelText: 'e-posta',
-                       
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  // Parola Container
-                  const SizedBox(height: 16),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                       cursorColor: Colors.white,
-                      controller: _controllerPassword,
-                      obscureText: _obscureText,
-                      decoration: InputDecoration(
-                        labelStyle: TextStyle(color: Colors.white),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 1, color: Colors.redAccent),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 1, color: Colors.redAccent),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        labelText: 'Parola',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(_obscureText
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          onPressed: _togglePasswordVisibility,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => MyHomePage(),
-                                  ),
-                                );
-                              },
-                              child: const Text(
-                                'Kayıt Olmadan Devam Et',
-                                style: TextStyle(
-                                  color: Colors.redAccent,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const ForgotPasswordPage(),
-                              ),
-                            );
-                          },
-                          child: const Text(
-                            'Şifremi Unuttum',
-                            style: TextStyle(
-                              color: Colors.redAccent,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 77),
-                  ElevatedButton(
-                    onPressed: () {
-                      _isLogin
-                          ? signInWithEmailAndPassword()
-                          : createUserWithEmailAndPassword();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.redAccent,
-                      shape: RoundedRectangleBorder(
+        itemCount: 1,
+        itemBuilder: (context, snapshot) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20),
+                Container(
+                  height: 183.65,
+                  alignment: Alignment.center,
+                  child: Image.asset('images/ta.png'),
+                ),
+                const SizedBox(height: 16),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: TextField(
+                    style: const TextStyle(color: Colors.white),
+                    cursorColor: Colors.white,
+                    controller: _controllerEmail,
+                    decoration: InputDecoration(
+                      labelStyle: const TextStyle(color: Colors.white),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.redAccent),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      padding: const EdgeInsets.all(16),
-                    ),
-                    child: Text(
-                      _isLogin ? 'Giriş Yap' : 'Kayıt Ol',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      labelText: 'E-posta',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
-                  
-                  const SizedBox(height: 12),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.55,
-                    height: 50,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.redAccent),
-                      borderRadius: BorderRadius.circular(8),
+                ),
+                const SizedBox(height: 16),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: TextField(
+                    style: const TextStyle(color: Colors.white),
+                    cursorColor: Colors.white,
+                    controller: _controllerPassword,
+                    obscureText: _obscureText,
+                    decoration: InputDecoration(
+                      labelStyle: const TextStyle(color: Colors.white),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      labelText: 'Parola',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText ? Icons.visibility_off : Icons.visibility,
+                          color: Colors.white,
+                        ),
+                        onPressed: _togglePasswordVisibility,
+                      ),
                     ),
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          _isLogin = !_isLogin;
-                        });
-                      },
-                      child: Text(
-                        _isLogin ? 'Kayıt Ol' : 'Giriş Yap',
-                        style: const TextStyle(
-                          color: Colors.redAccent,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordPage(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Şifremi Unuttum',
+                      style: TextStyle(
+                        color: Colors.redAccent,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 50.5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _isLogin
+                              ? signInWithEmailAndPassword()
+                              : createUserWithEmailAndPassword();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.redAccent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        ),
+                        child: Text(
+                          _isLogin ? 'Giriş Yap' : 'Kayıt Ol',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 50),
-                  SignInButton(
-                    
-                    Buttons.Google,
-                    
-                    text: "Google İle Giriş Yap",
-                    elevation: 15,
+                    const SizedBox(width: 12),
+                    Flexible(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _isLogin = !_isLogin;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.redAccent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 16),
+                        ),
+                        child: Text(
+                          _isLogin ? 'Kayıt Ol' : 'Giriş Yap',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30.5),
+                SignInButton(
+                  Buttons.Google,
+                  text: "Google İle Giriş Yap",
+                  elevation: 20,
+                  onPressed: () {
+                    try {
+                      Auth().signInWithGoogle();
+                      //
+                    } catch (e) {}
+                  },
+                ),
+                const SizedBox(height: 16),
+                Align(
+                  alignment: Alignment.center,
+                  child: TextButton(
                     onPressed: () {
-                      try {
-                        Auth().signInWithGoogle();
-                        // ignore: empty_catches
-                      } catch (e) {}
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyHomePage(),
+                        ),
+                      );
                     },
+                    child: const Text(
+                      'Kayıt Olmadan Devam Et',
+                      style: TextStyle(
+                        color: Colors.redAccent,
+                      ),
+                    ),
                   ),
-                ],
-              ),
-            );
-          }),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
