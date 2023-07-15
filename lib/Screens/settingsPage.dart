@@ -187,24 +187,29 @@ class HelpPage extends StatelessWidget {
         backgroundColor: Color.fromRGBO(30, 33, 36, 1),
         title: Text('Yardım'),
       ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Text(
-            'Uygulama içindeki temel özellikleri kullanmak için aşağıdaki adımları izleyebilirsiniz:\n\n'
-                '1. Ana sayfada arama çubuğunu kullanarak istediğiniz kitabı arayabilirsiniz.\n\n'
-                '2. Arama sonuçlarından istediğiniz kitaba dokunun ve detay sayfasına gidin.\n\n'
-                '3. Detay sayfasında kitabın içeriği, yazarı, sayfası sayısı gibi bilgilere erişebilirsiniz.\n\n'
-                '4. Kitabı listenize kaydetmek için ilgili butonu kullanabilirsiniz.\n\n'
-                '5. Beğendiğiniz kitaplara puan vermek için kitap detay sayfasında bulunan puanlama bölümünü kullanabilirsiniz.\n\n'
-                '6. Ayarlar sayfasından koyu tema ve bildirim ayarlarını düzenleyebilirsiniz.\n\n'
-                '7. Çıkış yapmak istediğinizde "Çıkış Yap" butonunu kullanabilirsiniz.\n\n'
-                '8. Kitap oy oranını görebilir, kendi oyladığınız ve kaydettiğiniz kitaplar sonucunda başarınızın durumunu ölçebilirsiniz.\n\n'
-                '9. Uygulamayı giriş yapmadan da kullanabilir, kaydetme, puan verme gibi işlemleri gerçekleştirmek için giriş yapmanız gerekmektedir.\n\n'
-                'Bu şekilde BookBD uygulamasını verimli bir şekilde kullanabilirsiniz. Daha fazla yardıma ihtiyaç duyarsanız lütfen bizimle iletişime geçin.',
-            style: TextStyle(fontSize: 16, color: Colors.white),
-          ),
-        ),
+      body: ListView.builder(
+        itemCount: 1,
+        itemBuilder: (context, snapshot) {
+          return Center(
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                'Uygulama içindeki temel özellikleri kullanmak için aşağıdaki adımları izleyebilirsiniz:\n\n'
+                    '1. Ana sayfada arama çubuğunu kullanarak istediğiniz kitabı arayabilirsiniz.\n\n'
+                    '2. Arama sonuçlarından istediğiniz kitaba dokunun ve detay sayfasına gidin.\n\n'
+                    '3. Detay sayfasında kitabın içeriği, yazarı, sayfası sayısı gibi bilgilere erişebilirsiniz.\n\n'
+                    '4. Kitabı listenize kaydetmek için ilgili butonu kullanabilirsiniz.\n\n'
+                    '5. Beğendiğiniz kitaplara puan vermek için kitap detay sayfasında bulunan puanlama bölümünü kullanabilirsiniz.\n\n'
+                    '6. Ayarlar sayfasından koyu tema ve bildirim ayarlarını düzenleyebilirsiniz.\n\n'
+                    '7. Çıkış yapmak istediğinizde "Çıkış Yap" butonunu kullanabilirsiniz.\n\n'
+                    '8. Kitap oy oranını görebilir, kendi oyladığınız ve kaydettiğiniz kitaplar sonucunda başarınızın durumunu ölçebilirsiniz.\n\n'
+                    '9. Uygulamayı giriş yapmadan da kullanabilir, kaydetme, puan verme gibi işlemleri gerçekleştirmek için giriş yapmanız gerekmektedir.\n\n'
+                    'Bu şekilde BookBD uygulamasını verimli bir şekilde kullanabilirsiniz. Daha fazla yardıma ihtiyaç duyarsanız lütfen bizimle iletişime geçin.',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ),
+          );
+        }
       ),
     );
   }

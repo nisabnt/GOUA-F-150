@@ -42,8 +42,10 @@ class _LoginScreenState extends State<LoginScreen> {
         context: context,
         builder: (context) {
           return const AlertDialog(
+            backgroundColor: const Color.fromRGBO(30, 33, 36, 1),
             content: Text(
               "Hatalı bir giriş yaptınız, lütfen daha önce kullanılmamış bir mail veya şifrenizi minimum 6 karakterden uzun giriniz.",
+              style: TextStyle(color: Colors.white),
             ),
           );
         },
