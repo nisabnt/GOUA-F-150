@@ -150,12 +150,13 @@ Alınan kararlar: Tasarlanan kullanıcı sayfaları geliştirildi, firebasle ver
 ![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/10.png)<br>
 
 - **Sprint Review**: 
-Alınan kararlar: Tasarlanan kullanıcı sayfaları geliştirildi, firebasle veri tabanı oluşturuldu ve bağlantı yapıldı, verilerin dinamik olarak yansıtılmasını sağladık, kitap kategorileri ve detay sayfaları oluşturuldu, kullanıcılar için etkileşimli bir alan haline getirildi. Kullanıcı giriş ekranı geliştirildi. Sprint Review Katılımcıları: Barış DİNÇER, Mertcan ELİGÜZEL, Tufan AKBAŞ, Nisa Berrenur TOPCU.
+Alınan kararlar: Uygulama içerisinde başarı sistemi oluşturuldu, splash screen yapıldı, kitap bilgileri girildi, uygulama renkleri düzenlendi, giriş yapmadan uygulamayı kullanabilme özelliği eklendi, hakkında ve yardım yazılarının içeriği düzenlendi, uygulamanın logosu tasarlandı. Sprint Review Katılımcıları: Barış DİNÇER, Mertcan ELİGÜZEL, Tufan AKBAŞ, Nisa Berrenur TOPCU, Göktuğ Yağız YILMAZ.
 
 - **Sprint Retrospective:**
-  - Bazen aramızda oluşan iletişim eksikliğini gidermek üzerine karar alındı.
+  - Bu sprinti diğer sprintlere göre daha güzel bir planlama ile yürüttük o yüzden süreç daha zevkli ilerledi.
+  - Bazen github kullanımı konusunda yaşadığımız sıkıntılar bizi githubı daha iyi öğrenmemiz gerektiğini gösterdi.
   - Önceki sprint retrospective toplantısında alınan kararlar uygulandığı için çok fazla problem yaşanmamıştır.
-  - Düzenli toplantılara devam etme konusunda anlaşıldı.
+    
   
 ---
 
