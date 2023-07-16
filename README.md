@@ -132,22 +132,27 @@ Alınan kararlar: Tasarlanan kullanıcı sayfaları geliştirildi, firebasle ver
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 400 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde üçüncü sprinte 100 puan verilmesi kararlaştırıldı.
 - **Sprint Notları**: User storyler product backlog'ların içerisine yazılmıştır (pembe renkle belirtilmiştir).Karta tıklandığında hikayelerin detayları görülebilir.
 
+- **JÜRİYE NOT**:  
+
+Uygulamanın sorunsuz çalışabilmesi için öncesinde terminale sırasıyla aşağıdaki komutları yazmak gereklidir. <br>
+"flutter clean" <br>
+"flutter pub get" <br>
+"flutter pub run flutter_native_splash:create" <br>
+"flutter pub run flutter_launcher_icons" <br>
+
 
 - **Daily Scrum**: Daily Scrum toplantıları WhatsApp, Discord ve Online yüzyüze görüşme gibi farklı şekillerde yapılmıştır. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 3 Daily Scrum Chats](https://www.canva.com/design/DAFn2AuGfNY/ZFnmTHOCjTkA5L_ZZ3wnDg/edit?utm_content=DAFn2AuGfNY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 - **Sprint board update**: Sprint board screenshotları: 
-![Backlog 3](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/4.png)<br>
+![Backlog 3](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/7.png)<br>
 
 - **Ürün Durumu**:<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/7.png)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/6.png)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/2.jpg)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/3.jpg)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/5.jpg)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/1.jpg)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/8.png)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/9.png)<br>
-![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint2DocumentsF-150/10.png)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/1.png)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/2.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/3.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/4.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/5.jpg)<br>
+![](https://github.com/nisabnt/GOUA-F-150/blob/main/Sprint3DocumentsF-150/6.jpg)<br>
 
 - **Sprint Review**: 
 Alınan kararlar: Uygulama içerisinde başarı sistemi oluşturuldu, splash screen yapıldı, kitap bilgileri girildi, uygulama renkleri düzenlendi, giriş yapmadan uygulamayı kullanabilme özelliği eklendi, hakkında ve yardım yazılarının içeriği düzenlendi, uygulamanın logosu tasarlandı. Sprint Review Katılımcıları: Barış DİNÇER, Mertcan ELİGÜZEL, Tufan AKBAŞ, Nisa Berrenur TOPCU, Göktuğ Yağız YILMAZ.
