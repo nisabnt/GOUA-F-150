@@ -69,36 +69,67 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WhoWeArePage()),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                child: Row(
+                  children: [
+                    Icon(Icons.webhook, color: Color.fromRGBO(156, 136, 255, 1)),
+                    SizedBox(width: 12),
+                    Text(
+                      'Biz Kimiz',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             SizedBox(height: 16),
             GestureDetector(
               onTap: () {
                 showDialog(
-                  
                   context: context,
                   builder: (context) => AlertDialog(
                     backgroundColor: Color.fromRGBO(30, 33, 36, 1),
                     title: Auth().currentUser != null
-                        ? Text('Çıkış Yap', style: TextStyle(color: Colors.white),)
-                        : Text('Giriş Yap',
+                        ? Text(
+                            'Çıkış Yap',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        : Text(
+                            'Giriş Yap',
                             style: TextStyle(color: Colors.white),
                           ),
                     content: Auth().currentUser != null
-                        ? Text('Çıkış yapmak istediğinize emin misiniz?',
+                        ? Text(
+                            'Çıkış yapmak istediğinize emin misiniz?',
                             style: TextStyle(color: Colors.white),
                           )
-                        : Text('Giriş yapmak istediğinize emin misiniz?',
+                        : Text(
+                            'Giriş yapmak istediğinize emin misiniz?',
                             style: TextStyle(color: Colors.white),
                           ),
                     actions: [
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(30, 33, 36, 0.7)),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(30, 33, 36, 0.7)),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                         child: Text('İptal'),
                       ),
                       ElevatedButton(
-                         style: ElevatedButton.styleFrom(
+                        style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromRGBO(30, 33, 36, 0.7)),
                         onPressed: () async {
                           Auth().currentUser != null
@@ -145,6 +176,98 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 }
 
+class WhoWeArePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(30, 33, 36, 1),
+        title: Text('Biz Kimiz'),
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text('Nisa Berrenur TOPCU', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),),
+            subtitle: Text('Scrum Master', style: TextStyle(color: Colors.redAccent, fontSize: 15, fontWeight: FontWeight.w600),),
+            trailing: CircleAvatar(
+              backgroundImage: AssetImage('images/nisa.jpg'),
+            ),
+          ),
+          ListTile(
+            title: Text('Mertcan ELİGÜZEL',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+            subtitle: Text('Developer',
+              style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600),
+            ),
+            trailing: CircleAvatar(
+              backgroundImage: AssetImage('images/mertcan.jpg'),
+            ),
+          ),
+          ListTile(
+            title: Text('Barış DİNÇER',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+            subtitle: Text('Developer',
+              style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600),
+            ),
+            trailing: CircleAvatar(
+              backgroundImage: AssetImage('images/baris.jpeg'),
+            ),
+          ),
+          ListTile(
+            title: Text('Tufan AKBAŞ',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+            subtitle: Text('Product Owner',
+              style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600),
+            ),
+            trailing: CircleAvatar(
+              backgroundImage: AssetImage('images/tufan.jpg'),
+            ),
+          ),
+          ListTile(
+            title: Text('Göktuğ Yağız YILMAZ',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+            subtitle: Text('Developer',
+              style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600),
+            ),
+            trailing: CircleAvatar(
+              backgroundImage: AssetImage('images/goktug.jpg'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -155,25 +278,24 @@ class AboutPage extends StatelessWidget {
         title: Text('Hakkında'),
       ),
       body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, snapshot) {
-          return Center(
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'BookDB uygulaması, günümüzde kitapları inceleyip, okuduklarımızı listemize kaydedip bunlara puan verebileceğimiz ve farklı özelliklere de sahip bir uygulama olarak tasarlanmıştır.'
-                    'Geliştirilme sebebi, kitapseverlere hitap etmek üzere bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. '
-                    'Kullanıcı kesimimiz kitap okumayı seven her insanı kapsamaktadır.'
-                    'Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelen bir şekilde oluşturulmuştur. '
-                    'Kullanıcılarımız uygulama içerisinde aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir.'
-                    'Uygulamanın benzer versiyonlarının farklı amaçlar için kullanıldığı göz önüne alınarak, özellikle kitap için yapılmamış olmaları bizleri bu uygulamayı geliştirmeye teşvik etmiştir. '
-                    'Amaçlarımızın bir diğeri de insanları kitap okumaya teşvik etmek ve özendirmektir.',
+          itemCount: 1,
+          itemBuilder: (context, snapshot) {
+            return Center(
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'BookDB uygulaması, günümüzde kitapları inceleyip, okuduklarımızı listemize kaydedip bunlara puan verebileceğimiz ve farklı özelliklere de sahip bir uygulama olarak tasarlanmıştır.'
+                  'Geliştirilme sebebi, kitapseverlere hitap etmek üzere bu minvalde bir uygulamanın olmayışı ve buna ihtiyaç duyulmasıdır. '
+                  'Kullanıcı kesimimiz kitap okumayı seven her insanı kapsamaktadır.'
+                  'Uygulamamız bu kapsam göz önünde bulundurularak açık, anlaşılır, kullanımı kolay ve göze hoş gelen bir şekilde oluşturulmuştur. '
+                  'Kullanıcılarımız uygulama içerisinde aradığı kitaba erişme, kitabın özetini okuyabilme, kitabı listesine kaydedebilme, beğenme durumuna göre puan verme ve verilen genel ortalamayı görerek fikir sahibi olmak gibi pek çok fonksiyonu bir arada kullanabilecektir.'
+                  'Uygulamanın benzer versiyonlarının farklı amaçlar için kullanıldığı göz önüne alınarak, özellikle kitap için yapılmamış olmaları bizleri bu uygulamayı geliştirmeye teşvik etmiştir. '
+                  'Amaçlarımızın bir diğeri de insanları kitap okumaya teşvik etmek ve özendirmektir.',
                   style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
-            ),
-          );
-        }
-      ),
+            );
+          }),
     );
   }
 }
@@ -188,29 +310,28 @@ class HelpPage extends StatelessWidget {
         title: Text('Yardım'),
       ),
       body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, snapshot) {
-          return Center(
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'Uygulama içindeki temel özellikleri kullanmak için aşağıdaki adımları izleyebilirsiniz:\n\n'
-                    '1. Ana sayfada arama çubuğunu kullanarak istediğiniz kitabı arayabilirsiniz.\n\n'
-                    '2. Arama sonuçlarından istediğiniz kitaba dokunun ve detay sayfasına gidin.\n\n'
-                    '3. Detay sayfasında kitabın içeriği, yazarı, sayfası sayısı gibi bilgilere erişebilirsiniz.\n\n'
-                    '4. Kitabı listenize kaydetmek için ilgili butonu kullanabilirsiniz.\n\n'
-                    '5. Beğendiğiniz kitaplara puan vermek için kitap detay sayfasında bulunan puanlama bölümünü kullanabilirsiniz.\n\n'
-                    '6. Ayarlar sayfasından koyu tema ve bildirim ayarlarını düzenleyebilirsiniz.\n\n'
-                    '7. Çıkış yapmak istediğinizde "Çıkış Yap" butonunu kullanabilirsiniz.\n\n'
-                    '8. Kitap oy oranını görebilir, kendi oyladığınız ve kaydettiğiniz kitaplar sonucunda başarınızın durumunu ölçebilirsiniz.\n\n'
-                    '9. Uygulamayı giriş yapmadan da kullanabilir, kaydetme, puan verme gibi işlemleri gerçekleştirmek için giriş yapmanız gerekmektedir.\n\n'
-                    'Bu şekilde BookBD uygulamasını verimli bir şekilde kullanabilirsiniz. Daha fazla yardıma ihtiyaç duyarsanız lütfen bizimle iletişime geçin.',
-                style: TextStyle(fontSize: 16, color: Colors.white),
+          itemCount: 1,
+          itemBuilder: (context, snapshot) {
+            return Center(
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'Uygulama içindeki temel özellikleri kullanmak için aşağıdaki adımları izleyebilirsiniz:\n\n'
+                  '1. Ana sayfada arama çubuğunu kullanarak istediğiniz kitabı arayabilirsiniz.\n\n'
+                  '2. Arama sonuçlarından istediğiniz kitaba dokunun ve detay sayfasına gidin.\n\n'
+                  '3. Detay sayfasında kitabın içeriği, yazarı, sayfası sayısı gibi bilgilere erişebilirsiniz.\n\n'
+                  '4. Kitabı listenize kaydetmek için ilgili butonu kullanabilirsiniz.\n\n'
+                  '5. Beğendiğiniz kitaplara puan vermek için kitap detay sayfasında bulunan puanlama bölümünü kullanabilirsiniz.\n\n'
+                  '6. Ayarlar sayfasından koyu tema ve bildirim ayarlarını düzenleyebilirsiniz.\n\n'
+                  '7. Çıkış yapmak istediğinizde "Çıkış Yap" butonunu kullanabilirsiniz.\n\n'
+                  '8. Kitap oy oranını görebilir, kendi oyladığınız ve kaydettiğiniz kitaplar sonucunda başarınızın durumunu ölçebilirsiniz.\n\n'
+                  '9. Uygulamayı giriş yapmadan da kullanabilir, kaydetme, puan verme gibi işlemleri gerçekleştirmek için giriş yapmanız gerekmektedir.\n\n'
+                  'Bu şekilde BookBD uygulamasını verimli bir şekilde kullanabilirsiniz. Daha fazla yardıma ihtiyaç duyarsanız lütfen bizimle iletişime geçin.',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
-            ),
-          );
-        }
-      ),
+            );
+          }),
     );
   }
 }
