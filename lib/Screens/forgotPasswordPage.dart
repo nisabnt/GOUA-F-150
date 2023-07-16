@@ -19,6 +19,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
+            backgroundColor: Color.fromRGBO(30, 33, 36, 1),
             content: Text("Şifre sıfırlama maili gönderildi lütfen e-mailinizi kontrol edin!", style: TextStyle(color: Colors.white),),
           );
         },
